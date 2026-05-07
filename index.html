@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<!-- saved from url=(0020)https://bucelis.com/ -->
+<html lang="lt" style="--bg-color: #ffffff;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!-- Google tag (gtag.js) -->
+<script async="" src="./Julius Bučelis — Digital, Industrial Designer_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KTTHR9L3BW');
+</script>
+
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Julius Bučelis — Digital, Industrial Designer</title>
+
+
+
+<!-- Open Sans -->
+<link href="./Julius Bučelis — Digital, Industrial Designer_files/css2" rel="stylesheet">
+
+<style>
+  :root{
+    --page-bg: #c4b8b8;
+    --panel-bg: #7a7a7a;
+    --text: #0e0e0e;
+    --gap: 18px;
+    --content-width: 1300px;
+    /* dynamic background updated from JS */
+    --bg-color: #ffffff;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Outfit', sans-serif;
+    /* use dynamic bg variable so JS can change it while scrolling */
+    background:var(--bg-color);
+    color:var(--text);
+    display:flex;
+    justify-content:center;
+    padding:24px 16px;
+    /* allow scrolling while overlay is visible so page isn't locked */
+    overflow:auto;
+    transition: background 300ms linear;
+  }
+  
+  /* Loading overlay */
+  .loading-overlay{
+    position:fixed;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    background:linear-gradient(180deg, rgba(192,192,192,0.95), rgba(192,192,192,0.98));
+    z-index:9999;
+    flex-direction:column;
+    transition:opacity 300ms ease, visibility 300ms;
+    /* don't block scroll or pointer events to the page under the overlay */
+    pointer-events: none;
+  }
+
+  /* allow spinner itself to receive pointer events if needed */
+  .loading-overlay .spinner{
+    pointer-events: auto;
+  }
+  
+  .loading-overlay.hidden{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+  }
+
+  .frame{
+    width:var(--content-width);
+    max-width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+  }
+
+  .header{
+    padding-top:8px;
+  }
+
+  .name{
+    font-size:20px;
+    margin-bottom:100px;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  .title{
+    font-size:72px;
+    line-height:0.95;
+    letter-spacing:-1px;
+    margin-bottom:50px;
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  .intro{
+    font-size:24px;
+    line-height:1.45;
+    max-width:300px;
+    margin-bottom:10px;
+  }
+
+  .gallery{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:var(--gap);
+  }
+
+  .box{
+    background:var(--panel-bg);
+    width:100%;
+    overflow:hidden;
+    position: relative;
+    cursor: default;
+    border-radius: 24px;
+  }
+
+  .overlay {
+    z-index: 50;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 610px;
+    height: 610px;
+    background: rgb(110, 106, 106 );
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    padding: 60px;
+    text-align: left;
+    margin: 20px;
+    border-radius: 14px;
+      }
+
+  .overlay-description {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 300;
+  }
+
+  .box:hover .overlay,
+  .box:active .overlay {
+    opacity: 1;
+  }
+
+  .overlay-title {
+    color: white;
+    font-size: 36px;
+    margin-bottom: 32px;
+    font-style: normal;
+    font-weight: 300;
+  }
+
+  .overlay-link {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: 300;
+   }
+
+  .overlay-link:hover {
+    opacity: 0.5;
+  }
+
+  /* Specific layout for desktop */
+
+   /* Stuart */
+  .s1 { grid-column:1 / -1; height:650px; }
+  .s2 { grid-column:1 / 2; height:650px; }
+  .s3 { grid-column:2 / -1; grid-row:2 / 4; }
+  .s4 {grid-column: 1/ 2; height: 650px;}
+   /* Muista */
+  .m1 {grid-column: 1 / -1; height: 650px;}
+  .m2 {grid-column: 1 / 2;  height: 650px;}
+  .m3 {grid-column: 2 / -1; height: 650px;}
+   /* Bench */
+  .b1 {grid-column: 1 / -1; height: 650px;}
+  .b2 {grid-column: 1 / 2; height: 650px;}
+  .b3 {grid-column: 2 / -1; height: 650px;}
+  /* Mo */
+  .mo1 {grid-column: 1 / -1; height: 650px;}
+  .mo2 {grid-column: 1 / 2; height: 650px;}
+  .mo3 {grid-column: 2 / -1; height: 650px;}
+  .mo4 {grid-column: 1 / 2; height: 650px;}
+  .mo5 {grid-column: 2 / -1; height: 650px;}
+  /* Millo */
+  .mi1 {grid-column: 1 / -1; height: 650px;}
+  .mi2 {grid-column: 1 / 2; height: 650px;}
+  .mi3 {grid-column: 2 / -1; height: 650px;}
+  /* Mywildother */
+  .my1 {grid-column: 1 / -1; height: 650px;}
+  .my2 {grid-column: 1 / 2; height: 650px;}
+  .my3 {grid-column: 2 / -1; height: 650px;}
+  /* Pan */
+  .p1 {grid-column: 1 / -1; height: 650px;}
+  .p2 {grid-column: 1 / 2; height: 650px;}
+  .p3 {grid-column: 2 / -1; height: 650px;}
+  /* Toothbrush */
+  .t1 {grid-column: 1 / -1; height: 650px;}
+  .t2 {grid-column: 1 / 2; height: 650px;}
+  .t3 {grid-column: 2 / -1; height: 650px;}
+  /* Moon */
+  .moo1 {grid-column: 1 / -1; height: 650px;}
+  .moo2 {grid-column: 1 / 2; height: 650px;}
+  .moo3 {grid-column: 2 / -1; grid-row: 20 / 22;}
+  .moo4 {grid-column: 1 / 2; height: 650px;}
+  /* Drop */
+  .d1 {grid-column: 1 / -1; height: 650px;}
+  .d2 {grid-column: 1 / 2; height: 650px;}
+  .d3 {grid-column: 2 / -1; height: 650px;}
+  /* Peak */
+  .pe1 {grid-column: 1 / -1; height: 650px;}
+  .pe2 {grid-column: 1 / 2; height: 650px;}
+  .pe3 {grid-column: 2 / -1; height: 650px;}
+  /* Pinocchio */
+  .pin1 {grid-column: 1 / -1; height: 650px;}
+  .pin2 {grid-column: 1 / 2; height: 650px;}
+  .pin3 {grid-column: 2 / -1; height: 650px;}
+
+  .box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  .footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:24px;
+    padding-top:8px;
+    padding-bottom: 50px;
+  }
+
+  .about{
+    font-size:24px;
+    line-height:1.6;
+    color: var(--text);
+    margin-top: 40px;
+    margin-bottom: 40px;
+    }
+
+  .spinner{
+    width:64px;
+    height:64px;
+    border-radius:50%;
+    border:8px solid rgba(0,0,0,0.08);
+    border-top-color: rgba(0,0,0,0.6);
+    animation: spin 1s linear infinite;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12) inset;
+  }
+
+  .loading-text{
+    font-size:14px;
+    color:var(--text);
+    font-weight:600;
+    letter-spacing:0.2px;
+  }
+
+  @keyframes spin{
+    to { transform: rotate(360deg); }
+  }
+
+  .read-more {
+  background-color: rgba(14, 14, 14, 0.2);
+  z-index: 1;
+  opacity: 1;
+  color: white;
+  font-size: 16px;
+  font-weight: 200;
+  position: absolute;
+  bottom: 20px;    
+  left: 20px;  
+  padding: 5px 10px;
+  border-radius: 18px;
+  border-style: none;
+}
+
+  /* --------- Responsive --------- */
+
+  @media (max-width:1300px){
+    .title{ font-size:56px; }
+    .intro{ font-size:20px; max-width:100%; }
+    .mail{ font-size:20px; }
+
+    .gallery{
+      grid-template-columns:1fr;
+    }
+
+    /* apply responsive single-column layout to all image tiles */
+    .s1, .s2, .s3, .s4, 
+    .m1 , .m2, .m3, 
+    .b1, .b2, .b3, 
+    .mo1, .mo2, .mo3, .mo4, .mo5,
+    .mi1, .mi2, .mi3,
+    .my1, .my2, .my3,
+    .p1, .p2, .p3,
+    .t1, .t2, .t3,
+    .moo1, .moo2, .moo3, .moo4,
+    .d1, .d2, .d3,
+    .pe1, .pe2, .pe3,
+    .pin1, .pin2, .pin3
+    {
+      grid-column: 1 / -1;
+      grid-row: auto;
+      height: auto;
+      aspect-ratio: 1 / 1; /* use aspect-ratio instead of fixed height */
+    }
+    .w25 { grid-row: 27 / 29; }
+
+    .footer{
+      font-size:24px;
+      }
+
+    .overlay {
+    z-index: 5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(110, 106, 106 );
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    padding: 30px;
+    text-align: left;
+    margin: 0;
+      }
+
+    .overlay-title {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    .overlay-description{
+    font-size: 16px;
+    }
+    .overlay-link {
+      font-size: 16px;
+    }
+
+    .read-more {
+      font-size: 16px;
+      padding: 5px 12px;
+      border-radius: 18px;
+      height: 36px;
+      border-style: none;
+      top: 6px;    /* Changed from bottom to top */
+      right: 6px;  /* Changed from left to right */
+      left: auto;  /* ensure left is cleared */
+      bottom: auto;/* ensure bottom is cleared */
+      z-index: 1; /* sit above overlays */
+      opacity: 1;
+    }
+  }
+
+  @media (max-width:400px){
+    .title{ font-size:44px; }
+    .intro{ font-size:16px; }
+    .gallery{ gap:14px; }
+
+    .overlay-title {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    .overlay-description{
+    font-size: 14px;
+    }
+    .overlay-link {
+      font-size: 14px;
+    }
+       .read-more {
+      font-size: 16px;
+      height: 36px;
+      width: 120px;
+      border-radius: 18px;
+      border-style: none;
+      top: 6px;    /* Changed from bottom to top */
+      right: 6px;  /* Changed from left to right */
+      left: auto;  /* ensure left is cleared */
+      bottom: auto;/* ensure bottom is cleared */
+      z-index: 1; /* sit above overlays */
+      opacity: 1;
+    }
+  }
+
+  /* clickable email + copy feedback */
+  .mail{
+    cursor: pointer;
+    text-decoration: underline dotted;
+    -webkit-tap-highlight-color: transparent;
+    text-decoration:none;
+  }
+  .mail:focus{
+    outline: none;
+    text-decoration:none;
+      }
+
+  .copy-toast{
+    position:fixed;
+    left:50%;
+    bottom:24px;
+    transform:translateX(-50%) translateY(12px);
+    background:rgba(0,0,0,0.8);
+    color:#fff;
+    padding:8px 12px;
+    border-radius:8px;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity 180ms ease, transform 180ms ease;
+    z-index:12000;
+    font-size:14px;
+  }
+  .copy-toast.show{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
+    pointer-events:auto;
+  }
+
+
+
+</style>
+</head>
+
+<body cz-shortcut-listen="true" class="loaded">
+  <!-- Loading overlay (visible until images and page are ready) -->
+  
+
+  <main class="frame">
+
+    <header class="header">
+      <p class="name">Julius Bucelis</p>
+      <h1 class="title">I’m dedicated to solving any design challenges you face.</h1>
+      <p class="intro mail" tabindex="0" role="button">julius@bucelis.com</p>
+    </header>
+
+    <section class="gallery">
+      
+      <!-- Stuart -->
+
+      <div class="box s1">
+        <img src="./Julius Bučelis — Digital, Industrial Designer_files/Stuart 3.jpg" alt="Stuart">
+        <div class="overlay">
+          <h2 class="overlay-title">Stuart</h2>
+          <p class="overlay-description">For this project, I took the lead as the main designer, guiding it from concept to reality. I was responsible for shaping the creative vision and technical design, working hand in hand with engineers and manufacturers to bring every detail to life. I also oversaw IP and IK testing to ensure top performance and durability. The result is a product that not only met expectations but exceeded them — now successfully sold and enjoyed by customers. </p>
+          <a href="https://www.stuart.energy/" class="overlay-link">stuart.energy</a>
+        </div>
+        <button class="read-more">read more</button>
+      </div>
+      <div class="box s2"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Stuart 2.jpg" alt="Stuart"></div>
+      <div class="box s3"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Stuart 1.jpg" alt="Stuart"></div>
+      <div class="box s4"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Stuart 4.jpg" alt="Stuart"></div>
+
+      <!-- Muista -->
+
+      <div class="box m1">
+        <img src="./Julius Bučelis — Digital, Industrial Designer_files/Muista 1.jpg" alt="chair">
+        <div class="overlay">
+          <h2 class="overlay-title">Muista</h2>
+          <p class="overlay-description">Muista is a renowned brand known for its innovative ergonomic chairs. Aurimas from Muista reached out after discovering my work on Instagram, inviting me to take on an exciting challenge — to design a new, easy-to-assemble chair featuring a sleek metal frame. The project combined creativity with technical precision, and ultimately, the chair was brought to life — a fresh addition to Muista’s collection that reflects both function and design harmony.</p>
+          <a href="https://muista.eu/" target="_blank" class="overlay-link">muista.eu</a>
+          </div>
+          <button class="read-more">read more</button>
+      </div>
+      <div class="box m2"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Muista 2.jpg" alt="chair"></div>
+      <div class="box m3"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Muista 3.jpg" alt="chair"></div>
+
+      <!-- Bench -->
+
+      <div class="box b1"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Bench 1.jpg" alt="bench">
+        <div class="overlay">
+          <h2 class="overlay-title">Bench</h2>
+          <p class="overlay-description">A businessman contacted me with a vision to install interactive public benches with advertising displays in the city of Vilnius. 
+            The project is currently being presented to the city municipality. I’m sharing one of the design concepts that the client liked the most. 
+            The strongest feature of this design is its modular system. The bench can be adapted to various urban scenarios, its construction is durable, and it complements the city’s architecture.</p>
+        </div>
+        <button class="read-more">read more</button>
+      </div>
+      <div class="box b2"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Bench 2.jpg" alt="bench"></div>
+      <div class="box b3"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Bench 3.jpg" alt="bench"></div>
+
+      <!-- Mo -->
+
+       <div class="box mo1"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Mo 1.jpg" alt="bench">
+        <div class="overlay">
+          <h2 class="overlay-title">Mo x Švyturys furniture</h2> 
+          <p class="overlay-description">This outdoor furniture collection was created especially for the “Mo” Museum in collaboration with the “Švyturys” brewery. The goal was to merge the worlds of art and beer culture without crossing into kitsch. The result is a playful collection that blends effortlessly into the vibrant rhythm of the city — a celebration of creativity, community, and urban life.</p>
+          <a href="https://mo.lt/" target="_blank" class="overlay-link">Mo</a>
+          <a href="https://svyturys.lt/" target="_blank" class="overlay-link">Švyturys</a>
+        </div>
+        <button class="read-more">read more</button>
+      </div>
+      <div class="box mo2"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Mo 2.gif" alt="bench"></div>
+      <div class="box mo3"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Mo 3.jpg" alt="bench"></div>
+      <div class="box mo4"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Mo 4.jpg" alt="bench"></div>
+      <div class="box mo5"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Mo 5.gif" alt="bench"></div>
+
+
+      <!-- Millo -->
+
+      <div class="box mi1"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Millo 1.jpg" alt="bench">
+        <div class="overlay">
+          <h2 class="overlay-title">Millo Air</h2>
+          <p class="overlay-description">In this project, I led the redesign of the classic Millo, reimagining it to be quieter, lighter, and more intuitive. The goal was to refine, not reinvent — creating a sleeker, smarter version that aligns with modern living. The project gained strong support on Kickstarter, reaching its goals and moving into production. This redesign embodies Millo’s spirit of innovation — blending elegance, performance, and purpose.</p>
+          <a href="https://www.kickstarter.com/projects/millobyadam/millo-air-your-smoothie-in-a-minute-anytime-anywhere?ref=discovery&amp;term=millo&amp;total_hits=19&amp;category_id=28" target="_blank" class="overlay-link">millo</a>
+        </div>
+        <button class="read-more">read more</button>
+      </div>
+      <div class="box mi2"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Millo 2.jpg" alt="bench"></div>
+      <div class="box mi3"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Millo 3.jpg" alt="bench"></div>
+
+      <!-- Mywildother -->
+
+      <div class="box my1"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Mywildother 1.jpg" alt="litterbox">
+        <div class="overlay">
+          <h2 class="overlay-title">Animalistus</h2>
+          <p class="overlay-description">A young entrepreneur, Jonas, contacted me with a request to design cat litter boxes. 
+            His energy and ambition to create something truly unique inspired me to experiment and unleash my creativity. 
+            Jonas chose to produce the product using CNC machines from plywood. I had a lot of freedom to experiment, and through this project,
+            I became well acquainted with the capabilities of CNC machinery.</p>
+          <a href="https://www.animalistus.lt/" target="_blank" class="overlay-link">animalistus.com</a>
+        </div>
+        <button class="read-more">read more</button>
+      </div>
+      <div class="box my2"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Mywildother 2.jpg" alt="litterbox"></div>
+      <div class="box my3"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Mywildother 3.jpg" alt="litterbox"></div>
+
+      <!-- Pan -->
+
+      <div class="box p1"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Pan 1.jpg" alt="Pan">
+        <div class="overlay">
+          <h2 class="overlay-title">Non Stick Pan</h2>
+          <p class="overlay-description">This pan was expertly crafted with e-commerce in mind, designed to be both eye-catching and highly clickable. 
+            Alongside the pan, I also designed a matching lid and set of utensils, which contributed to the productʼs strong sales performance in both the United States and Germany. 
+            One of the key challenges was designing a stainless steel handle that was both comfortable and attractive. Additionally, we had to make numerous adjustments to ensure optimal heat distribution and performance.
+             The end result was a product that not only stood out online but also delivered exceptional functionality.</p>
+        </div>
+        <button class="read-more">read more</button>
+      </div>
+      <div class="box p2"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Pan 2.jpg" alt="Pan"></div>
+      <div class="box p3"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Pan 3.jpg" alt="Pan"></div>
+
+      <!-- Toothbrush -->
+
+      <div class="box t1"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Toothbrush 1.jpg" alt="toothbrush">
+        <div class="overlay">
+          <h2 class="overlay-title">Toothbrush</h2>
+          <p class="overlay-description">This project involved designing an innovative toothbrush that prioritizes user comfort and effective cleaning. 
+            I focused on ergonomic design, selecting materials that are both durable and gentle on the gums. 
+            The toothbrush features a unique bristle arrangement to enhance cleaning efficiency while maintaining a sleek and modern aesthetic. 
+            The end result is a toothbrush that not only performs well but also looks great in any bathroom setting.</p>
+        </div>
+        <button class="read-more">read more</button>
+      </div>
+      <div class="box t2"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Toothbrush 2.jpg" alt="toothbrush"></div>
+      <div class="box t3"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Toothbrush 3.jpg" alt="toothbrush"></div>
+
+      <!-- Moon -->
+
+      <div class="box moo1"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Moon 1.jpg" alt="moon">
+        <div class="overlay">
+          <h2 class="overlay-title">Moon</h2>
+          <p class="overlay-description">I was tasked with designing a pair of stylish yet cost-effective headphones, marking the company's first  venture into ODM (Original Design Manufacturer) products. The result was a visually striking design that not only captivated customers but also significantly boosted e-shop sales. This success story didnʼt just end there —it also opened new doors for the company, leading to the development of a range of other successful ODM products.</p>
+          <a href="https://acmegrupe.lt/" target="_blank" class="overlay-link">acme europe</a>
+        </div>
+        <button class="read-more">read more</button>
+      </div>
+      <div class="box moo2"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Moon 2.jpg" alt="moon"></div>
+      <div class="box moo3"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Moon 3.jpg" alt="moon"></div>
+      <div class="box moo4"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Moon 4.jpg" alt="moon"></div>
+
+      <!-- Drop -->
+
+      <div class="box d1"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Drop 1.jpg" alt="drop">
+        <div class="overlay">
+          <h2 class="overlay-title">Drop</h2>
+          <p class="overlay-description">One of the many products I designed at Acme Europe is a touchscreen cleaner. Research revealed that phone screens are among the dirtiest surfaces we touch daily. My goal was to create a cleaner that’s always within reach — practical, compact, and ready to use whenever needed.</p>
+         <a href="https://acmegrupe.lt/" target="_blank" class="overlay-link">acme europe</a>
+        </div>
+        <button class="read-more">read more</button>
+      </div>
+      <div class="box d2"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Drop 2.jpg" alt="drop"></div>
+      <div class="box d3"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Drop 3.jpg" alt="drop"></div>
+
+      <!-- Peak -->
+
+      <div class="box pe1"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Peak 1.jpg" alt="peak">
+        <div class="overlay">
+          <h2 class="overlay-title">Peak</h2>
+          <p class="overlay-description">I designed a backpack tailored for modern urban life — versatile, functional, and effortlessly stylish. Its standout feature is an innovative strap system that transforms the backpack into a shoulder bag with one smooth motion, adapting seamlessly to any situation. Inside, a thoughtfully organized pocket system keeps all your essentials and tech accessories neatly in place, making it the perfect companion for the city dweller on the move.</p>
+          <a href="https://acmegrupe.lt/" target="_blank" class="overlay-link">acme europe</a>
+        </div>
+        <button class="read-more">read more</button>
+      </div>
+      <div class="box pe2"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Peak 2.jpg" alt="peak"></div>
+      <div class="box pe3"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Peak 3.jpg" alt="peak"></div>
+
+      <!-- Pinocchio -->
+
+      <div class="box pin1"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Pinocchio 1.gif" alt="pinocchio">
+        <div class="overlay">
+          <h2 class="overlay-title">Pinocchio</h2>
+          <p class="overlay-description">Pinocchio was my first design project after graduating from the Academy of Arts — and it continues to travel the world, featured in exhibitions to this day. It’s a modular chair with a playful twist: it stands on only two legs and gains stability only when connected to another chair. Pinocchio is more than just a piece of furniture — it’s a poetic exploration of balance, connection, and the idea that we are stronger together.</p>
+          <a href="https://www.designboom.com/design/giulio-iacchetti-dearest-pinocchio-icon-puppet-milan-adi-11-28-2023/" target="_blank" class="overlay-link">Carissimo Pinocchio</a>
+        </div>
+        <button class="read-more">read more</button>
+      </div>
+      <div class="box pin2"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Pinocchio 2.jpg" alt="pinocchio"></div>
+      <div class="box pin3"><img src="./Julius Bučelis — Digital, Industrial Designer_files/Pinocchio 3.jpg" alt="pinocchio"></div>
+
+    </section>
+
+    <div>
+        <p class="about">I’m an industrial designer with over a decade of experience shaping innovative ideas into reality. If you have a brilliant concept and need help bringing it to life, let's connect. I specialize in discovering the perfect mood, shape, and materials for your project, and I’m dedicated to solving any design challenges you face. Together, we can turn your vision into a remarkable product.</p>
+    </div>
+
+    <footer class="footer">   
+        <span class="mail" tabindex="0" role="button">julius@bucelis.com</span>
+        <span>2026</span>     
+    </footer>
+
+  </main>
+
+  <!-- copy feedback toast -->
+  <div id="copyToast" class="copy-toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <script>
+    // copy-on-click for any element with class "mail"
+    (function(){
+      const emailEls = document.querySelectorAll('.mail');
+      const toast = document.getElementById('copyToast');
+      if(!toast) return;
+
+      function showToast(msg){
+        toast.textContent = msg;
+        toast.classList.add('show');
+        clearTimeout(toast._t);
+        toast._t = setTimeout(() => toast.classList.remove('show'), 1700);
+      }
+
+      function copyText(text){
+        if(navigator.clipboard && navigator.clipboard.writeText){
+          return navigator.clipboard.writeText(text);
+        }
+        // fallback
+        return new Promise((resolve, reject) => {
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'absolute';
+          ta.style.left = '-9999px';
+          document.body.appendChild(ta);
+          ta.select();
+          try {
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+            resolve();
+          } catch (err) {
+            document.body.removeChild(ta);
+            reject(err);
+          }
+        });
+      }
+
+      emailEls.forEach(el => {
+        el.setAttribute('tabindex', el.getAttribute('tabindex') || '0');
+        el.setAttribute('role', el.getAttribute('role') || 'button');
+
+        el.addEventListener('click', () => {
+          const text = (el.dataset && el.dataset.clipboard) ? el.dataset.clipboard : el.textContent.trim();
+          copyText(text)
+            .then(() => showToast('Email copied to clipboard'))
+            .catch(() => showToast('Copy failed'));
+        });
+
+        el.addEventListener('keydown', (e) => {
+          if(e.key === 'Enter' || e.key === ' '){
+            e.preventDefault();
+            el.click();
+          }
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    // Wait for images to load, then hide overlay. Keep a small minimum delay for UX.
+    (function(){
+      const overlay = document.getElementById('loadingOverlay');
+      // only count images that are actually loaded eagerly (not deferred via data-lazy="1")
+      const imgs = Array.from(document.images).filter(img => img.dataset.lazy !== '1');
+      let loaded = 0;
+      const total = imgs.length;
+      const minDelay = 300; // ms
+      const start = performance.now();
+
+      function markDone(){
+        const elapsed = performance.now() - start;
+        const wait = Math.max(0, minDelay - elapsed);
+        setTimeout(() => {
+          document.body.classList.add('loaded');
+          overlay.classList.add('hidden');
+          overlay.setAttribute('aria-hidden', 'true');
+          // allow scroll again
+          document.body.style.overflow = '';
+          // remove overlay from DOM after transition
+          setTimeout(() => overlay.remove(), 400);
+        }, wait);
+      }
+
+      if(total === 0){
+        markDone();
+        return;
+      }
+
+      imgs.forEach(img => {
+        if (img.complete) {
+          loaded++;
+        } else {
+          img.addEventListener('load', () => { loaded++; if(loaded === total) markDone(); }, { once: true });
+          img.addEventListener('error', () => { loaded++; if(loaded === total) markDone(); }, { once: true });
+        }
+      });
+
+      // If all images were already complete
+      if(loaded === total) markDone();
+
+      // Fallback: ensure overlay is removed eventually (network issues)
+      setTimeout(() => { if (!document.body.classList.contains('loaded')) markDone(); }, 8000);
+    })();
+  </script>
+
+  <script>
+    // Smooth background color change while scrolling.
+    (function(){
+      const root = document.documentElement;
+      // five colors; first is white so page is white at top.
+      const colors = ['#ffffff', '#f6f2ea', '#ffdfe6', '#e6f0ff', '#e6ffe6', '#ffffe6'];
+
+      function hexToRgb(hex){
+        hex = hex.replace('#','');
+        if(hex.length === 3) hex = hex.split('').map(c => c + c).join('');
+        return {
+          r: parseInt(hex.substring(0,2),16),
+          g: parseInt(hex.substring(2,4),16),
+          b: parseInt(hex.substring(4,6),16)
+        };
+      }
+      function rgbToHex(r,g,b){
+        const toHex = (v) => ('0' + Math.round(v).toString(16)).slice(-2);
+        return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+      }
+      function blend(c1, c2, t){
+        const a = hexToRgb(c1), b = hexToRgb(c2);
+        return rgbToHex(
+          a.r + (b.r - a.r) * t,
+          a.g + (b.g - a.g) * t,
+          a.b + (b.b - a.b) * t
+        );
+      }
+
+      let ticking = false;
+      function updateBg(){
+        const doc = document.documentElement;
+        const scrollTop = window.scrollY || window.pageYOffset;
+        const max = doc.scrollHeight - window.innerHeight;
+        const pct = max > 0 ? Math.min(1, scrollTop / max) : 0;
+        const pos = pct * (colors.length - 1);
+        const i = Math.floor(pos);
+        const t = pos - i;
+        const color = (i >= colors.length - 1) ? colors[colors.length - 1] : blend(colors[i], colors[i+1], t);
+        root.style.setProperty('--bg-color', color);
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(updateBg);
+        }
+      }, { passive: true });
+
+      // update on resize too (document height change)
+      window.addEventListener('resize', () => { if (!ticking){ ticking = true; requestAnimationFrame(updateBg); } });
+
+      // initial set
+      updateBg();
+    })();
+  </script>
+
+
+</body></html>
